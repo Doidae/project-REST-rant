@@ -1,13 +1,13 @@
 const React = require('react')
-const Def = require('./default')
+const Def = require('./default')   // check this later
 
 function home () {
     return (
-        <Def>
-            <main>
-                <h1>Home</h1>
-            </main>
-        </Def>
+    <Def>
+        <main>
+            <h1>HOME</h1>
+        </main>
+    </Def>
     )
 }
 

@@ -2,10 +2,11 @@ require('dotenv').config()
 const express = require('express')
 const app = express()
 
+app.set('views', __dirname + '/views') // probably missed this, added on part 4 step 2?
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
-
 app.use('/places', require('./controllers/places'))
+app.use(express.static('public'))
 
 app.get('/', (req, res) => {
     res.render('home')
@@ -18,3 +19,5 @@ app.get('*', (req, res) => {
 app.listen(process.env.PORT)
 
 // check if dotenv is installed
+
+//If something goes wrong with style, check rest rant part 4 part 3

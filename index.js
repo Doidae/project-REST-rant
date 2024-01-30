@@ -16,6 +16,10 @@ app.get('*', (req, res) => {
     res.render('error404')
 })
 
+app.get('/places/new/', (req,res) => {
+    res.render('new')
+})
+
 app.listen(process.env.PORT)
 
 // check if dotenv is installed

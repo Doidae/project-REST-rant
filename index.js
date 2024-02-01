@@ -27,6 +27,9 @@ app.get('/places/new', (req,res) => {
     res.render('new')
 })
 
+// app.get('/places/edit', (req, res) => {
+//     res.render('edit')
+// })
 
 
 app.listen(process.env.PORT)

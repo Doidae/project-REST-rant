@@ -1,6 +1,18 @@
+.container{
+    background-color: white;
+    
+}
+
 h1 {
     text-align: center;
     color: cornflowerblue;
+}
+h2{
+    text-align: center;
+    color: lightblue;
+}
+#showText{
+    text-align: center;
 }
 button {
     background-color: royalblue;

@@ -2,6 +2,25 @@ const React = require('react')
 const Def = require('../default')
 
 function show(data) {
+    let comments = (
+        <h3 className='inactive'>
+            No comments yet!
+        </h3>
+    )
+    if (data.place.comments.length) {
+        comments = data.place.comments.map(c => {
+            return (
+                <div className='border'>
+                    <h2 className='rant'>{c.rant ? 'Rant! ðŸ˜¡' : 'Rave! ðŸ˜»'}</h2>
+                    <h4>{c.content}</h4>
+                    <h3>
+                        <stong>- {c.author}</stong>
+                    </h3>
+                    <h4>Rating: {c.stars}</h4>
+                </div>
+            )
+        })
+    }
     return (
         <Def>
             <main>
@@ -30,7 +49,23 @@ function show(data) {
                         </div>
                         <div className='row'>
                             <h2>Comments</h2>
-                            <p id='showText'>No comments yet!</p>
+                            {comments}
+                            <h2>Got Your Own Rant or Rave?</h2>
+                            <form action={`/places/${data.place.id}/comment`} method="POST">
+                                <div className="row">
+                                    <div className="form-group col-sm-12">
+                                        <label htmlFor="content">Content</label>
+                                        <textarea id="content" name="content" className="form-control"></textarea>
+                                    </div>
+                                </div>
+                                <div>
+                                    <label for="stars">Star Rating:</label>
+                                    <input type="number" id='stars' name='stars' step="0.5" min="0" max="5"/>
+                                </div>
+                                <div>
+                                    <button type='submit'>Add Comment</button>
+                                </div>
+                            </form>
                         </div>
                         <div className='container'>
                             <div>
@@ -52,3 +87,6 @@ function show(data) {
 }
 
 module.exports = show
+
+
+//fix comments
